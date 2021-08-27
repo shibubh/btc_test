@@ -1,5 +1,5 @@
 
-export const TodoReducer = (state, action) => {
+export const TodoReducer = (state = [], action) => {
     switch (action.type) {
         case 'DO_TODO':
             return state.map(todo => {
@@ -24,7 +24,13 @@ export const TodoReducer = (state, action) => {
                 id: ID,
                 complete: bool,
             }*/
-            return state;
+
+            let newItem = {
+                task: action.task,
+                id: action.id,
+                complete: false,
+            };
+            return [...state, newItem];
         default:
             return state;
     }
