@@ -36,9 +36,15 @@ const App = () => {
 
   const { filter, todos } = state;
 
-  const filteredTodos = todos.filter(() => {
+  const filteredTodos = todos.filter(( todo ) => {
     if (filter === 'ALL') {
       return true;
+    }
+    if (filter === 'COMPLETE') {
+      return todo.complete === true;
+    }
+    if (filter === 'INCOMPLETE') {
+      return todo.complete === false;
     }
 
     return false;
